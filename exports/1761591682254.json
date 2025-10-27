@@ -1,0 +1,15 @@
+{
+  "timestamp": 1761591682254,
+  "operation": {
+    "id": "settings:config:package"
+  },
+  "projectId": "hey",
+  "files": [
+    {
+      "path": "/mnt/data/hey/backend/.env",
+      "type": "text",
+      "size": 263,
+      "dependencies": false
+    }
+  ]
+}

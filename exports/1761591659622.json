@@ -1,0 +1,15 @@
+{
+  "timestamp": 1761591659622,
+  "operation": {
+    "id": "backend:server:main"
+  },
+  "projectId": "hey",
+  "files": [
+    {
+      "path": "/mnt/data/hey/backend/server.ts",
+      "type": "text",
+      "size": 15843,
+      "dependencies": false
+    }
+  ]
+}

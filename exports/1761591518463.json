@@ -1,0 +1,15 @@
+{
+  "timestamp": 1761591518463,
+  "operation": {
+    "id": "db:schemas:zod"
+  },
+  "projectId": "hey",
+  "files": [
+    {
+      "path": "/mnt/data/hey/backend/schema.ts",
+      "type": "text",
+      "size": 271,
+      "dependencies": false
+    }
+  ]
+}

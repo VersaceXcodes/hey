@@ -1,0 +1,112 @@
+asyncapi: 2.0.0
+info:
+  title: Realtime Backend API
+  version: 1.0.0
+  description: Realtime events for user-facing data operations in the application
+servers:
+  dev:
+    url: http://localhost:3000
+    protocol: ws
+channels:
+  user_events:
+    subscribe:
+      operationId: onUserEvent
+      summary: Subscription for user-related events
+      message:
+        oneOf:
+          - $ref: "#/components/messages/UserCreated"
+          - $ref: "#/components/messages/UserUpdated"
+          - $ref: "#/components/messages/UserDeleted"
+  product_events:
+    subscribe:
+      operationId: onProductEvent
+      summary: Subscription for product-related events
+      message:
+        oneOf:
+          - $ref: "#/components/messages/ProductCreated"
+          - $ref: "#/components/messages/ProductUpdated"
+          - $ref: "#/components/messages/ProductDeleted"
+components:
+  messages:
+    UserCreated:
+      name: UserCreated
+      payload:
+        $ref: "#/components/schemas/User"
+    UserUpdated:
+      name: UserUpdated
+      payload:
+        $ref: "#/components/schemas/User"
+    UserDeleted:
+      name: UserDeleted
+      payload:
+        type: object
+        properties:
+          uid:
+            type: string
+        required:
+          - uid
+    ProductCreated:
+      name: ProductCreated
+      payload:
+        $ref: "#/components/schemas/Product"
+    ProductUpdated:
+      name: ProductUpdated
+      payload:
+        $ref: "#/components/schemas/Product"
+    ProductDeleted:
+      name: ProductDeleted
+      payload:
+        type: object
+        properties:
+          id:
+            type: string
+        required:
+          - id
+  schemas:
+    User:
+      type: object
+      properties:
+        uid:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        age:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        bio:
+          type: string
+          nullable: true
+      required:
+        - uid
+        - name
+        - email
+        - age
+        - created_at
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        price:
+          type: string
+          format: decimal
+        in_stock:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        description:
+          type: string
+          nullable: true
+      required:
+        - id
+        - title
+        - price
+        - in_stock
+        - created_at
